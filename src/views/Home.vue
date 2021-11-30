@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <span :src="user_data">{{user_data}}</span>
+    <p v-if="user_data != '' "> {{user_data}} </p>
+    <p v-else>Вы не авторизованы!</p>
   </div>
 </template>
 
@@ -22,7 +23,7 @@ export default {
   methods: {
     getMe(e) {
       axios
-        .get("/api/v1/users/me")
+        .get("/auth/users/me")
         .then(response => {
           console.log(response)
           this.user_data = response.data.username

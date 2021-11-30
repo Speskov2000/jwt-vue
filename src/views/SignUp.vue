@@ -30,10 +30,10 @@ export default {
       } 
 
       axios
-        .post('/api/v1/users/', formData)
+        .post('/auth/users/', formData)
         .then(response => {
           console.log(response)
-          this.$router.push('/')
+          this.$router.push('/log-in')
         })
         .catch(error => {
           console.log(error)
